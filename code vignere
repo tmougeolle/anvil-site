@@ -1,0 +1,19 @@
+minuscules = 'abcdefghijklmnopqrstuvwxyz'
+msg=input("entré le message: ")
+msgc = ""
+clef = input("entré la clef:")
+clef_etendue = ""
+
+for i in range(len(msg)):
+      clef_etendue += clef[i % len(clef)]
+
+for i in range(len(msg)):
+      if msg[i] in minuscules:
+            decalage = minuscules.index(clef_etendue[i])
+            index = minuscules.index(msg[i])
+            index = (index + decalage) % len(minuscules)
+            msgc += minuscules[index]
+      else:
+            msgc += msg[i]
+
+print ("voici le message: "+msgc)
